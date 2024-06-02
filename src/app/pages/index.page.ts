@@ -22,12 +22,14 @@ import { TooltipModule } from "primeng/tooltip";
 			<!-- <p-button type="button" (click)="increment()"
 				>Count {{ count() }}</p-button
 			> -->
-			<p-button
-				label="Submit"
-				icon="pi pi-github"
-				pTooltip="Enter your username"
-				tooltipPosition="top"
-			/>
+			<a href="https://github.com/monacodelisa-yt/analog-primeng-netlify" target="_blank">
+				<p-button
+					label="GitHub"
+					icon="pi pi-github"
+					pTooltip="Github repo"
+					tooltipPosition="bottom"
+				/>
+			</a>
 		</div>
 
 		<p class="read-the-docs">
