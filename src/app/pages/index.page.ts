@@ -1,18 +1,31 @@
-import { Component, signal } from "@angular/core";
+import { Component, OnInit, signal } from "@angular/core";
 
+import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from "primeng/button";
 import { TooltipModule } from "primeng/tooltip";
+import { FormsModule } from "@angular/forms";
+
+interface City {
+  name: string;
+  code: string;
+}
 
 @Component({
 	selector: "app-home",
 	standalone: true,
-	imports: [ButtonModule, TooltipModule],
+	imports: [FormsModule, DropdownModule, ButtonModule, TooltipModule],
 	template: `
 		<div>
 			<a href="https://analogjs.org/" target="_blank">
 				<img alt="Analog Logo" class="logo analog" src="/analog.svg" />
 			</a>
 		</div>
+
+    <p-dropdown
+    [options]="cities"
+    [(ngModel)]="selectedCity"
+    optionLabel="name"
+    placeholder="Select a City" />
 
 		<h2>Analog</h2>
 
@@ -40,6 +53,7 @@ import { TooltipModule } from "primeng/tooltip";
 	styles: [
 		`
 			.logo {
+        width: 3rem;
 				will-change: filter;
 			}
 			.logo:hover {
@@ -51,10 +65,17 @@ import { TooltipModule } from "primeng/tooltip";
 		`,
 	],
 })
-export default class HomeComponent {
-	count = signal(0);
+export default class HomeComponent  implements OnInit {
+  cities: City[] | undefined;
+  selectedCity: City | undefined;
 
-	increment() {
-		this.count.update((count) => count + 1);
-	}
+  ngOnInit() {
+      this.cities = [
+          { name: 'New York', code: 'NY' },
+          { name: 'Rome', code: 'RM' },
+          { name: 'London', code: 'LDN' },
+          { name: 'Istanbul', code: 'IST' },
+          { name: 'Paris', code: 'PRS' }
+      ];
+  }
 }
