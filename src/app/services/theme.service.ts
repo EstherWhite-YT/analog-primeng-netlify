@@ -16,16 +16,7 @@ export class ThemeService {
 	activeTheme = "dark";
 
 	constructor(@Inject(PLATFORM_ID) private platformId: any) {
-		afterRender(
-			() => {
-				let themeLink = this.doc.createElement("link");
-				themeLink.id = "app-theme";
-				themeLink.rel = "stylesheet";
-				themeLink.href = "/src/dark.scss";
-        this.doc.head.appendChild(themeLink);
-			},
-			{ phase: AfterRenderPhase.Write }
-		);
+
 	}
 
 	getTheme() {
