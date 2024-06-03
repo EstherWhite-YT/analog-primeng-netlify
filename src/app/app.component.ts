@@ -3,8 +3,10 @@ import {
   afterRender,
   AfterRenderPhase,
 	Component,
+	Inject,
 	inject,
 	OnInit,
+  PLATFORM_ID,
 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 
@@ -25,12 +27,11 @@ import { RouterOutlet } from "@angular/router";
 	],
 })
 export class AppComponent implements OnInit {
-  private platformId: any;
   doc = inject(DOCUMENT);
 	activeTheme = "dark";
 
-	ngOnInit(): void {
-    afterRender(
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {
+		afterRender(
 			() => {
 				let themeLink = this.doc.createElement("link");
 				themeLink.id = "app-theme";
@@ -40,6 +41,9 @@ export class AppComponent implements OnInit {
 			},
 			{ phase: AfterRenderPhase.Write }
 		);
+	}
+
+	ngOnInit(): void {
 	}
 
   getTheme() {
