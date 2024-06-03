@@ -52,9 +52,9 @@ export class AppComponent implements OnInit {
 
 	setTheme() {
 		if (this.prefersLightMode()) {
-			return "/public/light.css";
+			return "/assets/light.css";
 		} else {
-			return "/public/dark.css";
+			return "/assets/dark.css";
 		}
 	}
 
