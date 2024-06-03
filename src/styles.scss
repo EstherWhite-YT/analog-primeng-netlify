@@ -1,4 +1,4 @@
-@import "primeng/resources/themes/md-dark-deeppurple/theme.css";
+// @import "primeng/resources/themes/md-dark-deeppurple/theme.css";
 // @import "primeng/resources/themes/md-light-deeppurple/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
@@ -48,7 +48,6 @@ h1 {
 }
 
 @media (prefers-color-scheme: light) {
-  @import "primeng/resources/themes/md-light-deeppurple/theme.css";
 
   :root {
     color: #213547;
