@@ -1,5 +1,9 @@
+import { DOCUMENT, isPlatformBrowser } from "@angular/common";
 import {
+  afterRender,
+  AfterRenderPhase,
 	Component,
+	inject,
 	OnInit,
 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
@@ -21,8 +25,42 @@ import { RouterOutlet } from "@angular/router";
 	],
 })
 export class AppComponent implements OnInit {
+  private platformId: any;
+  doc = inject(DOCUMENT);
+	activeTheme = "dark";
 
 	ngOnInit(): void {
+    afterRender(
+			() => {
+				let themeLink = this.doc.createElement("link");
+				themeLink.id = "app-theme";
+				themeLink.rel = "stylesheet";
+				themeLink.href = this.setTheme();
+				this.doc.head.appendChild(themeLink);
+			},
+			{ phase: AfterRenderPhase.Write }
+		);
+	}
 
+  getTheme() {
+		return this.activeTheme;
+	}
+
+	setTheme() {
+		if (this.prefersLightMode()) {
+			return "/public/light.css";
+		} else {
+			return "/public/dark.css";
+		}
+	}
+
+	prefersLightMode(): boolean {
+		if (isPlatformBrowser(this.platformId)) {
+			return (
+				window.matchMedia &&
+				window.matchMedia("(prefers-color-scheme: light)").matches
+			);
+		}
+		return false;
 	}
 }
