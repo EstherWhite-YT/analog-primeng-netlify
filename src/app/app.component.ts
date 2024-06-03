@@ -56,9 +56,9 @@ export class AppComponent implements OnInit {
 
 	setTheme() {
 		if (this.prefersLightMode()) {
-			return "/src/app/assets/light.css";
+			return "light.css";
 		} else {
-			return "/src/app/assets/dark.css";
+			return "dark.css";
 		}
 	}
 
