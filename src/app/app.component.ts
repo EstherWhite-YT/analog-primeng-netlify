@@ -33,11 +33,15 @@ export class AppComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
 		afterRender(
 			() => {
-				let themeLink = this.doc.createElement("link");
-				themeLink.id = "app-theme";
-				themeLink.rel = "stylesheet";
+				let themeLink = this.doc.getElementById("app-theme") as HTMLLinkElement;
 				themeLink.href = this.setTheme();
-				this.doc.head.appendChild(themeLink);
+
+
+				// let themeLink = this.doc.createElement("link");
+				// themeLink.id = "app-theme";
+				// themeLink.rel = "stylesheet";
+				// themeLink.href = this.setTheme();
+				// this.doc.head.appendChild(themeLink);
 			},
 			{ phase: AfterRenderPhase.Write }
 		);
@@ -52,9 +56,9 @@ export class AppComponent implements OnInit {
 
 	setTheme() {
 		if (this.prefersLightMode()) {
-			return "/assets/light.css";
+			return "light.css";
 		} else {
-			return "/assets/dark.css";
+			return "dark.css";
 		}
 	}
 
