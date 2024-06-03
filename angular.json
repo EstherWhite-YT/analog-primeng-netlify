@@ -15,7 +15,21 @@
             "configFile": "vite.config.ts",
             "main": "src/main.ts",
             "outputPath": "dist/client",
-            "tsConfig": "tsconfig.app.json"
+            "tsConfig": "tsconfig.app.json",
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "node_modules/primeng/resources/themes/md-dark-deeppurple/theme.css",
+                "bundleName": "dark",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/md-light-deeppurple/theme.css",
+                "bundleName": "light",
+                "inject": false
+              },
+              "node_modules/primeng/resources/primeng.min.css"
+            ]
           },
           "defaultConfiguration": "production",
           "configurations": {
@@ -46,7 +60,23 @@
           }
         },
         "test": {
-          "builder": "@analogjs/platform:vitest"
+          "builder": "@analogjs/platform:vitest",
+          "options": {
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "node_modules/primeng/resources/themes/md-dark-deeppurple/theme.css",
+                "bundleName": "dark",
+                "inject": false
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/md-light-deeppurple/theme.css",
+                "bundleName": "light",
+                "inject": false
+              },
+              "node_modules/primeng/resources/primeng.min.css"
+            ]
+          }
         }
       }
     }
