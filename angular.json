@@ -21,12 +21,12 @@
               {
                 "input": "node_modules/primeng/resources/themes/md-dark-deeppurple/theme.css",
                 "bundleName": "dark",
-                "inject": false
+                "inject": true
               },
               {
                 "input": "node_modules/primeng/resources/themes/md-light-deeppurple/theme.css",
                 "bundleName": "light",
-                "inject": false
+                "inject": true
               },
               "node_modules/primeng/resources/primeng.min.css"
             ]
@@ -67,12 +67,12 @@
               {
                 "input": "node_modules/primeng/resources/themes/md-dark-deeppurple/theme.css",
                 "bundleName": "dark",
-                "inject": false
+                "inject": true
               },
               {
                 "input": "node_modules/primeng/resources/themes/md-light-deeppurple/theme.css",
                 "bundleName": "light",
-                "inject": false
+                "inject": true
               },
               "node_modules/primeng/resources/primeng.min.css"
             ]
