@@ -1,3 +1,9 @@
+// tried a lot of things separating imports in the same file does nto work they overwrite each other
+// If I add the SCSS files in 'public' adding `node_modules` tot he path, they do get coppied into the built app but remain as SCSS not the compiled CSS which is what I need
+// additions in angular.json don't seem to have effect
+// taking a break for now
+
+
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
@@ -42,6 +48,7 @@ h1 {
 .card {
   padding: 2em;
 }
+
 
 @media (prefers-color-scheme: light) {
 

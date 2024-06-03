@@ -33,14 +33,18 @@ export class AppComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
 		afterRender(
 			() => {
+
+        // let bodyEl = this.doc.querySelector("body") as HTMLElement;
+        // bodyEl.classList.add(this.setTheme());
+
 				// let themeLink = this.doc.getElementById("app-theme") as HTMLLinkElement;
 				// themeLink.href = this.setTheme();
 
-				let themeLink = this.doc.createElement("link");
-				themeLink.id = "app-theme";
-				themeLink.rel = "stylesheet";
-				themeLink.href = this.setTheme();
-				this.doc.head.appendChild(themeLink);
+				// let themeLink = this.doc.createElement("link");
+				// themeLink.id = "app-theme";
+				// themeLink.rel = "stylesheet";
+				// themeLink.href = this.setTheme();
+				// this.doc.head.appendChild(themeLink);
 			},
 			{ phase: AfterRenderPhase.Write }
 		);
@@ -53,21 +57,21 @@ export class AppComponent implements OnInit {
 		return this.activeTheme;
 	}
 
-	setTheme() {
-		if (this.prefersLightMode()) {
-			return "light.css";
-		} else {
-			return "dark.css";
-		}
-	}
+	// setTheme() {
+	// 	if (this.prefersLightMode()) {
+	// 		return "light.css";
+	// 	} else {
+	// 		return "dark.css";
+	// 	}
+	// }
 
-	prefersLightMode(): boolean {
-		if (isPlatformBrowser(this.platformId)) {
-			return (
-				window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: light)").matches
-			);
-		}
-		return false;
-	}
+	// prefersLightMode(): boolean {
+	// 	if (isPlatformBrowser(this.platformId)) {
+	// 		return (
+	// 			window.matchMedia &&
+	// 			window.matchMedia("(prefers-color-scheme: light)").matches
+	// 		);
+	// 	}
+	// 	return false;
+	// }
 }
