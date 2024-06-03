@@ -15,7 +15,12 @@
             "configFile": "vite.config.ts",
             "main": "src/main.ts",
             "outputPath": "dist/client",
-            "tsConfig": "tsconfig.app.json"
+            "tsConfig": "tsconfig.app.json",
+            "styles": [
+              "src/styles.scss",
+              "src/dark.scss",
+              "src/light.scss"
+            ]
           },
           "defaultConfiguration": "production",
           "configurations": {
@@ -46,7 +51,14 @@
           }
         },
         "test": {
-          "builder": "@analogjs/platform:vitest"
+          "builder": "@analogjs/platform:vitest",
+          "options": {
+            "styles": [
+              "src/styles.scss",
+              "src/dark.scss",
+              "src/light.scss"
+            ]
+          }
         }
       }
     }
