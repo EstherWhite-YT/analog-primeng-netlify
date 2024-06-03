@@ -7,6 +7,8 @@ import analog from '@analogjs/platform';
 export default defineConfig(({ mode }) => ({
   build: {
     target: ['es2020'],
+    // did nothing
+    cssCodeSplit: true,
   },
   resolve: {
     mainFields: ['module'],
@@ -22,12 +24,22 @@ export default defineConfig(({ mode }) => ({
   define: {
     'import.meta.vitest': mode !== 'production',
   },
-  css: {
+    css: {
     preprocessorOptions: {
       scss: {
+        includePaths: ['src'],
         additionalData: `@import "src/dark.scss";
-                        @import "src/light.scss";`
+                         @import "src/light.scss";`,
       },
-    },
-  }
+    }
+  },
+  // does nothing they were in the public folder not compiled
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: `@import "src/dark.scss";
+  //                        @import "src/light.scss";`,
+  //     },
+  //   }
+  // },
 }));
