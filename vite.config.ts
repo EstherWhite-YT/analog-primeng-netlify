@@ -22,4 +22,12 @@ export default defineConfig(({ mode }) => ({
   define: {
     'import.meta.vitest': mode !== 'production',
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "src/dark.scss";
+                        @import "src/light.scss";`
+      },
+    },
+  }
 }));
